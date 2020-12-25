@@ -1,5 +1,10 @@
-import React, { Fragment, useContext, useEffect } from "react";
-import { ProductsRow } from "./Products.style";
+import React, {
+    Fragment,
+    useContext,
+    useEffect,
+    useState,
+} from "react";
+import { ProductsRow, SeeMore, BtnSecondary } from "./Products.style";
 import { Container, ProductCard } from "..";
 import { Store } from "../../context/store";
 import { IProduct } from "../../context/types";
@@ -11,31 +16,28 @@ export interface IProductCategory {
 
 interface ProductsProps {
     products: IProduct[];
+    isCategory: boolean;
 }
 
-const Products: React.FC<ProductsProps> = ({ products }) => {
-    // const { state, dispatch } = useContext(Store);
-
-    // useEffect(() => {
-    //     dispatch({
-    //         type: "FETCH_PRODUCTS",
-    //     });
-
-    //     dispatch({
-    //         type: "FETCH_CATEGORIES",
-    //     });
-    // }, []);
-
+const Products: React.FC<ProductsProps> = ({
+    products,
+    isCategory,
+}) => {
     return (
         <Fragment>
             <Container>
                 <ProductsRow>
-                    {products?.map((product) => (
+                    {products?.slice(0, 4).map((product) => (
                         <Fragment key={product.id}>
                             <ProductCard product={product} />
                         </Fragment>
                     ))}
                 </ProductsRow>
+                {isCategory && products.length > 4 && (
+                    <SeeMore>
+                        <BtnSecondary>See More</BtnSecondary>
+                    </SeeMore>
+                )}
             </Container>
         </Fragment>
     );

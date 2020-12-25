@@ -13,7 +13,10 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
     return (
         <Fragment>
             <CategoryTitle>{category.title}</CategoryTitle>
-            <Products products={category.products} />
+            <Products
+                products={category.products}
+                isCategory={true}
+            />
         </Fragment>
     );
 };
