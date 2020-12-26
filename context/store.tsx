@@ -3,7 +3,9 @@ import { IState, IAction } from "./types";
 import { ProductActionTypes } from "./products/products.types";
 import {
     fetchCategories,
+    fetchCategoryIds,
     fetchProducts,
+    fetchProductsIds,
 } from "./products/products.actions";
 import { CartActionTypes } from "./cart/cart.types";
 import { removeCartItem, addCartItem } from "./cart/cart.actions";
@@ -13,6 +15,8 @@ export const initialState: IState = {
     cartItems: [],
     hideCart: true,
     categories: [],
+    productsIds: [],
+    categoriesIds: [],
 };
 
 export const Store = createContext<IState | any>(initialState);
@@ -28,6 +32,18 @@ const reducer = (state: IState, action: IAction): IState => {
             return {
                 ...state,
                 products: fetchProducts(),
+            };
+
+        case ProductActionTypes.FETCH_CATEGORIES_IDS:
+            return {
+                ...state,
+                categoriesIds: fetchCategoryIds(),
+            };
+
+        case ProductActionTypes.FETCH_PRODUCTS_IDS:
+            return {
+                ...state,
+                productsIds: fetchProductsIds(),
             };
         case CartActionTypes.ADD_ITEM:
             return {

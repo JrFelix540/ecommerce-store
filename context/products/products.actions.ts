@@ -52,3 +52,23 @@ export const fetchCategories = (): ICategory[] => {
     });
     return categoriesRemap;
 };
+
+export const fetchProductsIds = (): number[] => {
+    const productsIds: number[] = [];
+
+    products.map((product) => {
+        productsIds.push(product.id);
+    });
+
+    return productsIds;
+};
+
+export const fetchCategoryIds = (): number[] => {
+    const categoriesIds: number[] = [];
+
+    categories.map((category) => {
+        categoriesIds.push(category.id);
+    });
+
+    return categoriesIds;
+};

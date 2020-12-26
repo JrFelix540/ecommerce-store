@@ -32,6 +32,8 @@ export interface IState {
     cartItems: ICartItem[];
     hideCart: boolean;
     categories: ICategory[];
+    categoriesIds: number[];
+    productsIds: number[];
 }
 
 export interface IAction {

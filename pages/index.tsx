@@ -2,7 +2,6 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 import { Navbar, Hero, AllCategories } from "../components";
-import { StoreProvider } from "../context/store";
 import { Helmet } from "react-helmet";
 
 const GlobalStyle = createGlobalStyle`
@@ -29,10 +28,7 @@ export default function Home() {
             <GlobalStyle />
             <Navbar />
             <Hero />
-            <StoreProvider>
-                <AllCategories />
-            </StoreProvider>
-            {/* <Products products={products} /> */}
+            <AllCategories />
         </>
     );
 }

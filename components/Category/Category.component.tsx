@@ -16,6 +16,7 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
             <Products
                 products={category.products}
                 isCategory={true}
+                categoryId={category.id}
             />
         </Fragment>
     );
