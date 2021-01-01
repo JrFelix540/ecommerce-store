@@ -7,3 +7,4 @@ export { default as Category } from "./Category/Category.component";
 export { default as AllCategories } from "./AllCategories/AllCategories.component";
 export { default as ProductFull } from "./ProductFull/ProductFull.component";
 export { default as InputTextField } from "./InputTextField/InputTextField.component";
+export { default as CartDropdown } from "./CartDropdown/CartDropdown.component";

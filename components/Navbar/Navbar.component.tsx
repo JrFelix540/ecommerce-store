@@ -4,7 +4,7 @@ import React, {
     useEffect,
     useState,
 } from "react";
-import { Container } from "..";
+import { CartDropdown, Container } from "..";
 import {
     NavbarWrapper,
     LogoWrapper,
@@ -29,7 +29,11 @@ const Navbar: React.FC = () => {
         });
     }, []);
 
-    // calculateCartItems();
+    const toggleCart = () => {
+        dispatch({
+            type: `TOGGLE_CART`,
+        });
+    };
     return (
         <Fragment>
             <Container>
@@ -59,7 +63,7 @@ const Navbar: React.FC = () => {
                         <NavbarAction>
                             <Search size="16" />
                         </NavbarAction>
-                        <NavbarCart>
+                        <NavbarCart onClick={toggleCart}>
                             <Cart3 size="16" />
                             <CartTotal>
                                 <CartTotalText>
@@ -75,6 +79,8 @@ const Navbar: React.FC = () => {
                         </NavbarCart>
                     </NavbarActions>
                 </NavbarWrapper>
+
+                {!state.hideCart && <CartDropdown />}
             </Container>
         </Fragment>
     );

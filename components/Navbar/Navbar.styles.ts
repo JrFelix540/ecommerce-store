@@ -42,9 +42,10 @@ export const NavbarAction = styled.div`
     }
 `;
 
-export const NavbarCart = styled.div`
+export const NavbarCart = styled.a`
     display: flex;
     align-items: center;
+    cursor: pointer;
 `;
 
 export const CartTotal = styled.div`
