@@ -21,8 +21,7 @@ export interface ICategory {
 export interface ICartItem {
     id: number;
     name: string;
-    ingredientIds: number[];
-    image: string;
+    imageUrl: string;
     quantity: number;
     price: number;
 }
@@ -32,8 +31,6 @@ export interface IState {
     cartItems: ICartItem[];
     hideCart: boolean;
     categories: ICategory[];
-    categoriesIds: number[];
-    productsIds: number[];
 }
 
 export interface IAction {

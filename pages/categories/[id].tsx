@@ -6,6 +6,7 @@ import reset from "styled-reset";
 import { Navbar, Products } from "../../components";
 import { CategoryTitle } from "../../components/Category/Category.styles";
 import { Store } from "../../context/store";
+import { ICategory } from "../../context/types";
 import { useGetIntId } from "../../utils/useGetIntId";
 
 const GlobalStyle = createGlobalStyle`
@@ -24,7 +25,9 @@ const CategoryPage: React.FC = () => {
             type: "FETCH_CATEGORIES",
         });
     }, []);
-    const category = state.categories.find((cat) => cat.id === intId);
+    const category = state.categories.find(
+        (cat: ICategory) => cat.id === intId,
+    );
     return (
         <Fragment>
             <GlobalStyle />
@@ -56,7 +59,7 @@ export async function getStaticPaths(context: any) {
     );
     const categories = await res.json();
 
-    const paths = categories.map((cat) => ({
+    const paths = categories.map((cat: ICategory) => ({
         params: { id: cat.id.toString() },
     }));
 

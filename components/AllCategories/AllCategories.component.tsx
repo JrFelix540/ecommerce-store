@@ -9,14 +9,9 @@ const AllCategories: React.FC = () => {
         dispatch({
             type: "FETCH_CATEGORIES",
         });
-        dispatch({
-            type: "FETCH_CATEGORIES_IDS",
-        });
     }, []);
-
     return (
         <Fragment>
-            {console.log(state)}
             {state.categories.map((cat) => (
                 <Category category={cat} key={cat.id} />
             ))}

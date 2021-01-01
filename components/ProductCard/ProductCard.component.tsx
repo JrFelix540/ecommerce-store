@@ -11,6 +11,8 @@ import {
     SalePrice,
     Price,
 } from "./ProductCard.styles";
+import Link from "next/link";
+
 interface ProductCardProps {
     product: IProduct;
 }
@@ -18,14 +20,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
         <Fragment>
             <Card>
-                <ProductImage url={product.imageUrl} />
+                <Link
+                    href={`/products/[id]`}
+                    as={`/products/${product.id}`}
+                >
+                    <ProductImage url={product.imageUrl} />
+                </Link>
                 <ProductDetails>
                     <ProductCategories>
                         {product.categories?.map(
                             (cat) => cat.title + ` `,
                         )}
                     </ProductCategories>
-                    <ProductTitle>{product.title}</ProductTitle>
+                    <Link
+                        href={`/products/[id]`}
+                        as={`/products/${product.id}`}
+                    >
+                        <ProductTitle>{product.title}</ProductTitle>
+                    </Link>
                     {product.salePrice ? (
                         <PriceRow>
                             <OriginalPrice>

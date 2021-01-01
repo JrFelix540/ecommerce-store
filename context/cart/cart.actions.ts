@@ -39,3 +39,11 @@ export const removeCartItem = (
             : cartItem,
     );
 };
+
+export const fetchCartItems = (): ICartItem[] => {
+    const cartItemsJson = localStorage.getItem(`cartItems`);
+    if (!cartItemsJson) {
+        return [];
+    }
+    return JSON.parse(cartItemsJson);
+};

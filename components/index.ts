@@ -5,3 +5,5 @@ export { default as Products } from "./Products/Products.component";
 export { default as ProductCard } from "./ProductCard/ProductCard.component";
 export { default as Category } from "./Category/Category.component";
 export { default as AllCategories } from "./AllCategories/AllCategories.component";
+export { default as ProductFull } from "./ProductFull/ProductFull.component";
+export { default as InputTextField } from "./InputTextField/InputTextField.component";
