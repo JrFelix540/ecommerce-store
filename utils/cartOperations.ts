@@ -35,3 +35,16 @@ export const addCartItem = (newItem: ICartItem) => {
     const cartListJson = JSON.stringify(cartListItems);
     localStorage.setItem(`cartItems`, cartListJson);
 };
+
+export const calculateCartTotal = (
+    existingItems: ICartItem[],
+): number => {
+    let cartTotal: number = 0;
+
+    existingItems.map((item) => {
+        const itemTotal = item.price * item.quantity;
+        cartTotal = cartTotal + itemTotal;
+    });
+
+    return cartTotal;
+};

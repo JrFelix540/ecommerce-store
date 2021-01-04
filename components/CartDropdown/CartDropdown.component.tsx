@@ -49,7 +49,17 @@ const CartDropdown: React.FC = () => {
                             )
                         )}
                     </CartItems>
-                    <TertiaryButton>Go to checkout</TertiaryButton>
+                    <Link href="/checkout">
+                        <TertiaryButton
+                            onClick={() => {
+                                dispatch({
+                                    type: "TOGGLE_CART",
+                                });
+                            }}
+                        >
+                            Go to checkout
+                        </TertiaryButton>
+                    </Link>
                 </CartDropdownContainer>
             </CartDropdownRelative>
         </Fragment>

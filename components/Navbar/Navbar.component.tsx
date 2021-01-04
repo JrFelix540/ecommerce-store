@@ -17,7 +17,7 @@ import {
     CartTotalText,
     NavbarCart,
 } from "./Navbar.styles";
-import { Cart3, Heart, Search } from "@styled-icons/bootstrap";
+import { Cart3, Search } from "@styled-icons/bootstrap";
 import { Store } from "../../context/store";
 import { ICartItem } from "../../context/types";
 

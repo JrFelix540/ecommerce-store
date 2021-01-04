@@ -10,6 +10,8 @@ import {
     removeCartItem,
     addCartItem,
     fetchCartItems,
+    clearCartItem,
+    calculateCartTotal,
 } from "./cart/cart.actions";
 
 export const initialState: IState = {
@@ -17,6 +19,7 @@ export const initialState: IState = {
     cartItems: [],
     hideCart: true,
     categories: [],
+    cartTotal: 0,
 };
 
 export const Store = createContext<IState | any>(initialState);
@@ -28,13 +31,34 @@ const reducer = (state: IState, action: IAction): IState => {
                 ...state,
                 categories: fetchCategories(),
             };
+        case CartActionTypes.CALCULATE_CART_TOTAL:
+            return {
+                ...state,
+                cartTotal: calculateCartTotal(state.cartItems),
+            };
         case ProductActionTypes.FETCH_PRODUCTS:
             return {
                 ...state,
                 products: fetchProducts(),
             };
 
-        case CartActionTypes.REMOVE_ITEM:
+        case CartActionTypes.ADD_CART_ITEM:
+            return {
+                ...state,
+                cartItems: addCartItem(
+                    state.cartItems,
+                    action.payload,
+                ),
+            };
+        case CartActionTypes.CLEAR_CART_ITEM:
+            return {
+                ...state,
+                cartItems: clearCartItem(
+                    state.cartItems,
+                    action.payload,
+                ),
+            };
+        case CartActionTypes.REMOVE_CART_ITEM:
             return {
                 ...state,
                 cartItems: removeCartItem(

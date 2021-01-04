@@ -57,7 +57,10 @@ const ProductFull: React.FC<ProductFullProps> = ({ product }) => {
             price: product?.price,
             quantity,
         };
-
+        dispatch({
+            type: "ADD_CART_ITEM",
+            payload: cartItem,
+        });
         addCartItem(cartItem);
     };
 

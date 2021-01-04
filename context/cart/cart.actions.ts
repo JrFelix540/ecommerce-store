@@ -11,12 +11,18 @@ export const addCartItem = (
     if (existingItem) {
         return existingItems.map((item) =>
             item.id === newItem.id
-                ? { ...item, quantity: item.quantity + 1 }
+                ? {
+                      ...item,
+                      quantity: item.quantity + newItem.quantity,
+                  }
                 : item,
         );
     }
 
-    return [...existingItems, { ...newItem, quantity: 1 }];
+    return [
+        ...existingItems,
+        { ...newItem, quantity: newItem.quantity },
+    ];
 };
 
 export const removeCartItem = (
@@ -40,10 +46,40 @@ export const removeCartItem = (
     );
 };
 
+export const clearCartItem = (
+    existingItems: ICartItem[],
+    clearItem: ICartItem,
+): ICartItem[] => {
+    const existingItem: ICartItem | undefined = existingItems.find(
+        (cartItem: ICartItem) => cartItem.id === clearItem.id,
+    );
+
+    if (!existingItem) {
+        return existingItems;
+    }
+
+    return existingItems.filter(
+        (cartItem: ICartItem) => cartItem.id !== clearItem.id,
+    );
+};
+
 export const fetchCartItems = (): ICartItem[] => {
     const cartItemsJson = localStorage.getItem(`cartItems`);
     if (!cartItemsJson) {
         return [];
     }
     return JSON.parse(cartItemsJson);
+};
+
+export const calculateCartTotal = (
+    existingItems: ICartItem[],
+): number => {
+    let cartTotal: number = 0;
+
+    existingItems.map((item) => {
+        const itemTotal = item.price * item.quantity;
+        cartTotal = cartTotal + itemTotal;
+    });
+
+    return cartTotal;
 };

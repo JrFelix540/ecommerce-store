@@ -8,3 +8,4 @@ export { default as AllCategories } from "./AllCategories/AllCategories.componen
 export { default as ProductFull } from "./ProductFull/ProductFull.component";
 export { default as InputTextField } from "./InputTextField/InputTextField.component";
 export { default as CartDropdown } from "./CartDropdown/CartDropdown.component";
+export { default as CheckoutTable } from "./CheckoutTable/CheckoutTable.component";
