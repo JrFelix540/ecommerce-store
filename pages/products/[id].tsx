@@ -8,6 +8,13 @@ import { Store } from "../../context/store";
 import { IProduct } from "../../context/types";
 import { useGetIntId } from "../../utils/useGetIntId";
 
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  body{
+    font-family: 'Poppins', sans-serif;
+  }
+`;
+
 const ProductPage: React.FC = () => {
     const { state, dispatch } = useContext(Store);
     const router = useRouter();
@@ -21,12 +28,6 @@ const ProductPage: React.FC = () => {
     const product = state.products.find(
         (product: IProduct) => product.id === intId,
     );
-    const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body{
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 
     return (
         <Fragment>

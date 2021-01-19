@@ -48,3 +48,10 @@ export const calculateCartTotal = (
 
     return cartTotal;
 };
+
+export const updateCart = (newCartItems: ICartItem[]) => {
+    const cartListJson = JSON.stringify(newCartItems);
+
+    localStorage.removeItem(`cartItems`);
+    localStorage.setItem(`cartItems`, cartListJson);
+};

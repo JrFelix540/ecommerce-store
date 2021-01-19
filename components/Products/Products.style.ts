@@ -5,6 +5,18 @@ export const ProductsRow = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 40px;
+
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const SeeMore = styled.div`

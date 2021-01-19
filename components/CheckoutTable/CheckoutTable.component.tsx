@@ -22,9 +22,22 @@ import {
     ItemRemove,
     ItemQuantityText,
     CartTotalText,
+    CartButtons,
+    CheckoutTableMobile,
+    CheckoutTableMobileImage,
+    CheckoutTableMobileRow,
+    CheckoutTableMobileDetails,
+    ItemNameMobile,
+    ItemPriceMobile,
+    ItemQuantityMobile,
+    ItemRemoveMobile,
 } from "./CheckoutTable.styles";
 import { Store } from "../../context/store";
-import { calculateCartTotal } from "../../utils/cartOperations";
+import {
+    calculateCartTotal,
+    updateCart,
+} from "../../utils/cartOperations";
+import { PrimaryButton } from "../Hero/Hero.styles";
 
 interface CheckoutTableProps {
     cartItems: ICartItem[];
@@ -102,8 +115,84 @@ const CheckoutTable: React.FC<CheckoutTableProps> = ({
                         </Item>
                     ))}
                     <CartTotalText>Total: {cartTotal}</CartTotalText>
+                    <CartButtons>
+                        <PrimaryButton
+                            onClick={() => {
+                                updateCart(state.cartItems);
+                            }}
+                        >
+                            Update Cart
+                        </PrimaryButton>
+                    </CartButtons>
                 </CheckoutTableBody>
             </CheckoutTableWrapper>
+            <CheckoutTableMobile>
+                {cartItems.map((cartItem) => (
+                    <CheckoutTableMobileRow key={cartItem.id}>
+                        <CheckoutTableMobileImage
+                            imgUrl={cartItem.imageUrl}
+                        ></CheckoutTableMobileImage>
+                        <CheckoutTableMobileDetails>
+                            <ItemNameMobile>
+                                {cartItem.name}
+                            </ItemNameMobile>
+                            <ItemQuantityMobile>
+                                <a
+                                    onClick={() => {
+                                        dispatch({
+                                            type: "REMOVE_CART_ITEM",
+                                            payload: cartItem,
+                                        });
+                                    }}
+                                >
+                                    <CaretLeftFill size="16" />
+                                </a>
+                                <ItemQuantityText>
+                                    {cartItem.quantity}
+                                </ItemQuantityText>
+                                <a
+                                    onClick={() => {
+                                        dispatch({
+                                            type: "ADD_CART_ITEM",
+                                            payload: {
+                                                ...cartItem,
+                                                quantity: 1,
+                                            },
+                                        });
+                                    }}
+                                >
+                                    <CaretRightFill size="16" />
+                                </a>
+                            </ItemQuantityMobile>
+                            <ItemPriceMobile>
+                                {cartItem.price}
+                            </ItemPriceMobile>
+                            <ItemRemoveMobile>
+                                <a
+                                    onClick={() => {
+                                        dispatch({
+                                            type: "CLEAR_CART_ITEM",
+                                            payload: cartItem,
+                                        });
+                                    }}
+                                >
+                                    <Trash size="16" />
+                                </a>
+                            </ItemRemoveMobile>
+                        </CheckoutTableMobileDetails>
+                    </CheckoutTableMobileRow>
+                ))}
+                <CartTotalText>Total: {cartTotal}</CartTotalText>
+                <CartButtons>
+                    <PrimaryButton
+                        onClick={() => {
+                            updateCart(state.cartItems);
+                        }}
+                    >
+                        Update Cart
+                    </PrimaryButton>
+                </CartButtons>
+            </CheckoutTableMobile>
         </Fragment>
     );
 };

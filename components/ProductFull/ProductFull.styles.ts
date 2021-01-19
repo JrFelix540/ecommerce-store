@@ -9,6 +9,10 @@ export const ProductFullContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const ProductImage = styled.div<ProductImageProps>`
