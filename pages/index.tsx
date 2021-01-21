@@ -1,15 +1,6 @@
 import React from "react";
-import { createGlobalStyle } from "styled-components";
-import { reset } from "styled-reset";
-import { Navbar, Hero, AllCategories } from "../components";
 import { Helmet } from "react-helmet";
-
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body{
-    font-family: 'Poppins', sans-serif;
-  }
-`;
+import { AllCategories, Hero, Navbar } from "../components";
 
 export default function Home() {
     return (
@@ -25,7 +16,6 @@ export default function Home() {
                     rel="stylesheet"
                 />
             </Helmet>
-            <GlobalStyle />
             <Navbar />
             <Hero />
             <AllCategories />

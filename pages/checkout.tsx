@@ -1,15 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { Helmet } from "react-helmet";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
 import { CheckoutTable, Container, Navbar } from "../components";
 import { Store } from "../context/store";
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body{
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 
 const Checkout: React.FC = () => {
     const { state, dispatch } = useContext(Store);
@@ -27,7 +19,6 @@ const Checkout: React.FC = () => {
                     rel="stylesheet"
                 />
             </Helmet>
-            <GlobalStyle />
             <Navbar />
             <Container>
                 <CheckoutTable cartItems={state.cartItems} />

@@ -1,15 +1,7 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
 import { Navbar, Products } from "../components";
 import { Store } from "../context/store";
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body{
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 
 const Shop: React.FC = () => {
     const { state, dispatch } = useContext(Store);
@@ -22,7 +14,6 @@ const Shop: React.FC = () => {
 
     return (
         <Fragment>
-            <GlobalStyle />
             <Helmet>
                 <title>E-commerce Store</title>
                 <link

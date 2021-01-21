@@ -9,3 +9,4 @@ export { default as ProductFull } from "./ProductFull/ProductFull.component";
 export { default as InputTextField } from "./InputTextField/InputTextField.component";
 export { default as CartDropdown } from "./CartDropdown/CartDropdown.component";
 export { default as CheckoutTable } from "./CheckoutTable/CheckoutTable.component";
+export { default as ThankyouText } from "./ThankyouText/ThankyouText.component";

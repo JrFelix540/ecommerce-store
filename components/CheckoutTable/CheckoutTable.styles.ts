@@ -3,7 +3,9 @@ import styled from "styled-components";
 interface imageUrl {
     imgUrl: string;
 }
-
+interface marginRight {
+    mr: string;
+}
 export const CheckoutTableWrapper = styled.div`
     margin: 0 auto;
     @media screen and (max-width: 768px) {
@@ -123,4 +125,19 @@ export const ItemPriceMobile = styled(ItemPrice)`
 `;
 export const ItemRemoveMobile = styled(ItemRemove)`
     justify-content: flex-start;
+`;
+
+export const SecondaryButton = styled.div<marginRight>`
+    background-color: #fff;
+    color: #22262a;
+    text-transform: uppercase;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: 1px solid #22262a;
+    margin-right: ${(props) => (props.mr ? props.mr : 0)};
+    @media screen and (max-width: 576px) {
+        font-size: 16px;
+        padding: 7.5px 15px;
+    }
 `;

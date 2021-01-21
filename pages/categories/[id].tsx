@@ -1,20 +1,11 @@
 import { useRouter } from "next/router";
 import React, { Fragment, useContext, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
 import { Navbar, Products } from "../../components";
 import { CategoryTitle } from "../../components/Category/Category.styles";
 import { Store } from "../../context/store";
 import { ICategory } from "../../context/types";
 import { useGetIntId } from "../../utils/useGetIntId";
-
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body{
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 
 const CategoryPage: React.FC = () => {
     const { state, dispatch } = useContext(Store);
@@ -30,7 +21,6 @@ const CategoryPage: React.FC = () => {
     );
     return (
         <Fragment>
-            <GlobalStyle />
             <Helmet>
                 <title>{category?.title}</title>
             </Helmet>

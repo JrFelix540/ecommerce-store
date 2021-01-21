@@ -1,19 +1,10 @@
 import { useRouter } from "next/router";
 import React, { Fragment, useContext, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { createGlobalStyle } from "styled-components";
-import { reset } from "styled-reset";
 import { Navbar, ProductFull } from "../../components";
 import { Store } from "../../context/store";
 import { IProduct } from "../../context/types";
 import { useGetIntId } from "../../utils/useGetIntId";
-
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-  body{
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 
 const ProductPage: React.FC = () => {
     const { state, dispatch } = useContext(Store);
@@ -31,7 +22,6 @@ const ProductPage: React.FC = () => {
 
     return (
         <Fragment>
-            <GlobalStyle />
             <Helmet>
                 <title>{product?.title}</title>
             </Helmet>

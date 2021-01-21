@@ -31,6 +31,7 @@ import {
     ItemPriceMobile,
     ItemQuantityMobile,
     ItemRemoveMobile,
+    SecondaryButton,
 } from "./CheckoutTable.styles";
 import { Store } from "../../context/store";
 import {
@@ -38,6 +39,7 @@ import {
     updateCart,
 } from "../../utils/cartOperations";
 import { PrimaryButton } from "../Hero/Hero.styles";
+import router from "next/router";
 
 interface CheckoutTableProps {
     cartItems: ICartItem[];
@@ -116,12 +118,21 @@ const CheckoutTable: React.FC<CheckoutTableProps> = ({
                     ))}
                     <CartTotalText>Total: {cartTotal}</CartTotalText>
                     <CartButtons>
-                        <PrimaryButton
+                        <SecondaryButton
                             onClick={() => {
                                 updateCart(state.cartItems);
                             }}
+                            mr="10px"
                         >
                             Update Cart
+                        </SecondaryButton>
+                        <PrimaryButton
+                            onClick={() => {
+                                updateCart([]);
+                                router.replace(`/thank-you`);
+                            }}
+                        >
+                            Buy Now
                         </PrimaryButton>
                     </CartButtons>
                 </CheckoutTableBody>
@@ -184,12 +195,21 @@ const CheckoutTable: React.FC<CheckoutTableProps> = ({
                 ))}
                 <CartTotalText>Total: {cartTotal}</CartTotalText>
                 <CartButtons>
-                    <PrimaryButton
+                    <SecondaryButton
                         onClick={() => {
                             updateCart(state.cartItems);
                         }}
+                        mr="5px"
                     >
                         Update Cart
+                    </SecondaryButton>
+                    <PrimaryButton
+                        onClick={() => {
+                            updateCart([]);
+                            router.replace(`/thank-you`);
+                        }}
+                    >
+                        Buy
                     </PrimaryButton>
                 </CartButtons>
             </CheckoutTableMobile>

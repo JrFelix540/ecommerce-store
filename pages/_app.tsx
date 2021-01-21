@@ -2,12 +2,20 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 import { StoreProvider } from "../context/store";
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  body{
+    font-family: 'Poppins', sans-serif;
+  }
+`;
 
 export default class MyApp extends App {
     render() {
         const { Component, pageProps } = this.props;
         return (
-            <div>
+            <>
                 <Head>
                     <meta
                         name="description"
@@ -96,10 +104,11 @@ export default class MyApp extends App {
                     />
                     <meta name="theme-color" content="#ffffff"></meta>
                 </Head>
+                <GlobalStyle />
                 <StoreProvider>
                     <Component {...pageProps} />
                 </StoreProvider>
-            </div>
+            </>
         );
     }
 }
