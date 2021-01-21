@@ -15,7 +15,7 @@ const Shop: React.FC = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>E-commerce Store</title>
+                <title>E-commerce Store | Shop</title>
                 <link
                     rel="preconnect"
                     href="https://fonts.gstatic.com"
