@@ -40,7 +40,7 @@ export async function getStaticProps(context: any) {
     };
 }
 
-export async function getStaticPaths(context: any) {
+export async function getStaticPaths() {
     const productsUrl = process.env.NEXT_PRODUCTS_JSON;
     if (!productsUrl) {
         return;

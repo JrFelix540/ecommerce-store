@@ -41,7 +41,7 @@ export async function getStaticProps(context: any) {
     };
 }
 
-export async function getStaticPaths(context: any) {
+export async function getStaticPaths() {
     const categoriesUrl = process.env.NEXT_CATEGORIES_JSON;
 
     if (!categoriesUrl) {
