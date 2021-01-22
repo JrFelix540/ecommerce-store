@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React, { Fragment, useContext, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navbar, Products } from "../../components";
