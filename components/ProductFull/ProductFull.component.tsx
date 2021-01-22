@@ -27,7 +27,7 @@ interface ProductFullProps {
 }
 
 const ProductFull: React.FC<ProductFullProps> = ({ product }) => {
-    const { state, dispatch } = useContext(Store);
+    const { dispatch } = useContext(Store);
     useEffect(() => {
         dispatch({
             type: "ADD_CURRENT_PRODUCT",
