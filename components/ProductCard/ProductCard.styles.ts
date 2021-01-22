@@ -9,7 +9,7 @@ export const Card = styled.div``;
 export const ProductImage = styled.div<ProductImageProps>`
     height: 350px;
     width: 100%;
-    background-position: center center;
+    background-position: center;
     background-size: cover;
     background-image: url(${(props) => props.url});
     cursor: pointer;
