@@ -9,7 +9,6 @@ import { useGetIntId } from "../../utils/useGetIntId";
 
 const CategoryPage: React.FC = () => {
     const { state, dispatch } = useContext(Store);
-    const router = useRouter();
     const intId = useGetIntId();
     useEffect(() => {
         dispatch({
