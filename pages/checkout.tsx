@@ -4,7 +4,7 @@ import { CheckoutTable, Container, Navbar } from "../components";
 import { Store } from "../context/store";
 
 const Checkout: React.FC = () => {
-    const { state, dispatch } = useContext(Store);
+    const { state } = useContext(Store);
 
     return (
         <Fragment>
