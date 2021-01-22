@@ -10,6 +10,7 @@ export const ProductImage = styled.div<ProductImageProps>`
     height: 350px;
     width: 100%;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     background-image: url(${(props) => props.url});
     cursor: pointer;
