@@ -41,9 +41,11 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths(context: any) {
-    const res = await fetch(
-        `https://raw.githubusercontent.com/JrFelix540/ecommerce-pictures/master/products.json`,
-    );
+    const productsUrl = process.env.NEXT_PRODUCTS_JSON;
+    if (!productsUrl) {
+        return;
+    }
+    const res = await fetch(productsUrl);
     const products = await res.json();
 
     const paths = products.map((product: IProduct) => ({

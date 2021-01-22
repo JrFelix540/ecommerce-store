@@ -4,22 +4,18 @@ import React, {
     useEffect,
     useState,
 } from "react";
-import { CartDropdown, Container } from "..";
+import { CartDropdown, Container, MobileMenu } from "..";
 import {
     NavbarWrapper,
     LogoWrapper,
     NavbarLink,
     NavbarItem,
     NavbarLinks,
-    NavbarAction,
     NavbarActions,
     CartTotal,
     CartTotalText,
     NavbarCart,
     MobileMenuIcon,
-    MobileMenuContainer,
-    MobileNavLinks,
-    MobileNavbarItem,
     CancelMenuIcon,
 } from "./Navbar.styles";
 import { Cart3, List, X } from "@styled-icons/bootstrap";
@@ -106,30 +102,10 @@ const Navbar: React.FC = () => {
                         </CancelMenuIcon>
                     </NavbarActions>
                 </NavbarWrapper>
-                <MobileMenuContainer open={openMenu}>
-                    <MobileNavLinks>
-                        <MobileNavbarItem>
-                            <NavbarLink href="/">Home</NavbarLink>
-                        </MobileNavbarItem>
-                        <MobileNavbarItem>
-                            <NavbarLink href="/shop">Shop</NavbarLink>
-                        </MobileNavbarItem>
-                        {state.categories.map(
-                            (category: ICategory) => (
-                                <MobileNavbarItem key={category.id}>
-                                    <Link
-                                        href={`/categories/[id]`}
-                                        as={`/categories/${category.id}`}
-                                    >
-                                        <NavbarLink>
-                                            {category.title}
-                                        </NavbarLink>
-                                    </Link>
-                                </MobileNavbarItem>
-                            ),
-                        )}
-                    </MobileNavLinks>
-                </MobileMenuContainer>
+                <MobileMenu
+                    openMenu={openMenu}
+                    categories={state.categories}
+                />
                 {!state.hideCart && <CartDropdown />}
             </Container>
         </Fragment>

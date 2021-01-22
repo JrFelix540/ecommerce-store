@@ -10,3 +10,4 @@ export { default as InputTextField } from "./InputTextField/InputTextField.compo
 export { default as CartDropdown } from "./CartDropdown/CartDropdown.component";
 export { default as CheckoutTable } from "./CheckoutTable/CheckoutTable.component";
 export { default as ThankyouText } from "./ThankyouText/ThankyouText.component";
+export { default as MobileMenu } from "./MobileMenu/MobileMenu.component";

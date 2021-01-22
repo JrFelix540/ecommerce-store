@@ -44,9 +44,12 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths(context: any) {
-    const res = await fetch(
-        `https://raw.githubusercontent.com/JrFelix540/ecommerce-pictures/master/categories.json`,
-    );
+    const categoriesUrl = process.env.NEXT_CATEGORIES_JSON;
+
+    if (!categoriesUrl) {
+        return;
+    }
+    const res = await fetch(categoriesUrl);
     const categories = await res.json();
 
     const paths = categories.map((cat: ICategory) => ({
