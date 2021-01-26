@@ -9,7 +9,7 @@ export const ProductFullContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
-
+    margin-bottom: 20px;
     @media screen and (max-width: 576px) {
         grid-template-columns: 1fr;
     }
@@ -36,16 +36,10 @@ export const ProductDetails = styled.div`
     display: flex;
     flex-direction: column;
 `;
-
-export const Price = styled.p`
-    font-size: 18px;
-    color: #22262a;
-    margin-bottom: 20px;
-`;
 export const ProductQuantity = styled.div`
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 20px 0;
 `;
 export const QuantityLabel = styled.p`
     color: #22262a;

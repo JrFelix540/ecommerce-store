@@ -12,7 +12,6 @@ import {
     ProductFullContainer,
     ProductImage,
     ProductTitle,
-    Price,
     ProductQuantity,
     QuantityButtons,
     QuantityLabel,
@@ -21,6 +20,12 @@ import {
 } from "./ProductFull.styles";
 import { Input } from "../InputTextField/InputTextField.styles";
 import { addCartItem } from "../../utils/cartOperations";
+import {
+    PriceRow,
+    OriginalPrice,
+    SalePrice,
+    Price,
+} from "../ProductCard/ProductCard.styles";
 
 interface ProductFullProps {
     product: IProduct;
@@ -50,11 +55,14 @@ const ProductFull: React.FC<ProductFullProps> = ({ product }) => {
     };
     const onSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
+        console.log(product);
         const cartItem: ICartItem = {
             id: product?.id,
             name: product?.title,
             imageUrl: product?.imageUrl,
-            price: product?.price,
+            price: product?.salePrice
+                ? product?.salePrice
+                : product?.price,
             quantity,
         };
         dispatch({
@@ -84,7 +92,19 @@ const ProductFull: React.FC<ProductFullProps> = ({ product }) => {
                     ></ProductImage>
                     <ProductDetails>
                         <ProductTitle>{product?.title}</ProductTitle>
-                        <Price>${product?.price}</Price>
+                        {product?.salePrice ? (
+                            <PriceRow>
+                                <OriginalPrice>
+                                    ${product?.price}
+                                </OriginalPrice>
+                                <SalePrice>
+                                    ${product?.salePrice}
+                                </SalePrice>
+                            </PriceRow>
+                        ) : (
+                            <Price>${product?.price}</Price>
+                        )}
+
                         <form onSubmit={onSubmit}>
                             <ProductQuantity>
                                 <QuantityLabel>
