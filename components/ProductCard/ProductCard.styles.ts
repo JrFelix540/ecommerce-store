@@ -14,6 +14,11 @@ export const ProductImage = styled.div<ProductImageProps>`
     background-size: cover;
     background-image: url(${(props) => props.url});
     cursor: pointer;
+
+    @media screen and (max-width: 576px) {
+        background-position: 0;
+        height: 250px;
+    }
 `;
 
 export const ProductDetails = styled.div`
