@@ -12,7 +12,7 @@ export const categories: ICategoryData[] = [
     {
         id: 2,
         title: "Women",
-        productIds: [7, 9, 14, 15, 16],
+        productIds: [7, 9, 14, 15],
     },
     {
         id: 3,
@@ -31,18 +31,16 @@ export const categories: ICategoryData[] = [
     },
 ];
 
-export const collection = [
+export const collections = [
     {
         id: 1,
         title: "Summer Collection",
-        productIds: [3, 12, 13, 14, 15, 15],
-        imageUrl: ``,
+        productIds: [3, 12, 13, 14, 15],
     },
     {
         id: 2,
-        title: "Winter Collection",
-        productIds: [1, 2],
-        imageUrl: ``,
+        title: "Collusion",
+        productIds: [1, 2, 11, 13],
     },
 ];
 interface IProductInfo {
@@ -153,7 +151,7 @@ export const products: IProductInfo[] = [
         title: `Denim Jacket`,
         categoryIds: [5],
         imageUrl: `https://raw.githubusercontent.com/JrFelix540/ecommerce-pictures/master/img/denim-jacket.jpg`,
-        collectionIds: [1],
+        collectionIds: [1, 2],
         price: 175,
     },
     {
@@ -161,7 +159,7 @@ export const products: IProductInfo[] = [
         title: `Winter Coat`,
         categoryIds: [5],
         imageUrl: `https://raw.githubusercontent.com/JrFelix540/ecommerce-pictures/master/img/winter-coat-2.jpg`,
-        collectionIds: [1],
+        collectionIds: [1, 2],
         price: 300,
     },
     {
@@ -179,14 +177,6 @@ export const products: IProductInfo[] = [
         imageUrl: `https://raw.githubusercontent.com/JrFelix540/ecommerce-pictures/master/img/floral-blouse.jpg`,
         collectionIds: [1],
         price: 50,
-    },
-    {
-        id: 16,
-        title: `Floral Blouse`,
-        categoryIds: [2],
-        imageUrl: `https://raw.githubusercontent.com/JrFelix540/ecommerce-pictures/master/img/floral-blouse.png`,
-        collectionIds: [1],
-        price: 70,
     },
     {
         id: 17,

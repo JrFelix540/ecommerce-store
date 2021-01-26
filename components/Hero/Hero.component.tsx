@@ -12,7 +12,7 @@ import {
     HeroButtons,
     PrimaryButton,
 } from "./Hero.styles";
-
+import Link from "next/link";
 const Hero: React.FC = () => {
     return (
         <Fragment>
@@ -30,9 +30,14 @@ const Hero: React.FC = () => {
                                 season's trends.
                             </HeroText>
                             <HeroButtons>
-                                <PrimaryButton>
-                                    Shop Now
-                                </PrimaryButton>
+                                <Link
+                                    href={`/collections/[id]`}
+                                    as={`/collections/2`}
+                                >
+                                    <PrimaryButton>
+                                        Shop Now
+                                    </PrimaryButton>
+                                </Link>
                             </HeroButtons>
                         </HeroTextContent>
                     </HeroContent>

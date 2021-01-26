@@ -32,9 +32,16 @@ export interface IState {
     hideCart: boolean;
     categories: ICategory[];
     cartTotal: number;
+    collections: ICollection[];
 }
 
 export interface IAction {
     type: string;
     payload?: any;
+}
+
+export interface ICollection {
+    id: number;
+    title: string;
+    products: IProduct[];
 }

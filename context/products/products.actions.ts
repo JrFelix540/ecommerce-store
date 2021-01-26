@@ -1,5 +1,10 @@
-import { ICategory, IProduct, IProductCategory } from "../types";
-import { products, categories } from "./shop.data";
+import {
+    ICategory,
+    ICollection,
+    IProduct,
+    IProductCategory,
+} from "../types";
+import { products, categories, collections } from "./shop.data";
 
 export const fetchProducts = (): IProduct[] => {
     const productsRemap: IProduct[] = [];
@@ -53,22 +58,28 @@ export const fetchCategories = (): ICategory[] => {
     return categoriesRemap;
 };
 
-export const fetchProductsIds = (): number[] => {
-    const productsIds: number[] = [];
+export const fetchCollections = (): ICollection[] => {
+    const collectionRemaps: ICollection[] = [];
 
-    products.map((product) => {
-        productsIds.push(product.id);
+    collections.map((collection) => {
+        const productsCollection: IProduct[] = [];
+        collection.productIds.map((productId) => {
+            const product = products.find(
+                (product) => product.id === productId,
+            );
+            if (!product) {
+                return;
+            }
+
+            productsCollection.push(product);
+        });
+
+        collectionRemaps.push({
+            id: collection.id,
+            title: collection.title,
+            products: productsCollection,
+        });
     });
 
-    return productsIds;
-};
-
-export const fetchCategoryIds = (): number[] => {
-    const categoriesIds: number[] = [];
-
-    categories.map((category) => {
-        categoriesIds.push(category.id);
-    });
-
-    return categoriesIds;
+    return collectionRemaps;
 };
