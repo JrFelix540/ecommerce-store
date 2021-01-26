@@ -16,7 +16,7 @@ export const ProductImage = styled.div<ProductImageProps>`
     cursor: pointer;
 
     @media screen and (max-width: 576px) {
-        background-position: 0;
+        background-position: 0 0;
         height: 250px;
     }
 `;
