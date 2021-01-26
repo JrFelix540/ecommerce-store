@@ -5,7 +5,7 @@ export const ProductsRow = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 40px;
-
+    margin-bottom: 20px;
     @media screen and (max-width: 1200px) {
         grid-template-columns: repeat(3, 1fr);
     }
