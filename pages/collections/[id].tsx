@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Navbar, Products } from "../../components";
 import { CategoryTitle } from "../../components/Category/Category.styles";
 import { Store } from "../../context/store";
-import { ICollection, IProduct } from "../../context/types";
+import { ICollection } from "../../context/types";
 import { useGetIntId } from "../../utils/useGetIntId";
 
 const CollectionPage: React.FC = () => {
@@ -35,5 +35,29 @@ const CollectionPage: React.FC = () => {
         </Fragment>
     );
 };
+export async function getStaticProps(context: any) {
+    const id = context.params.id;
+    return {
+        props: {
+            collectionId: parseFloat(id),
+        },
+    };
+}
+
+export async function getStaticPaths() {
+    const paths = [
+        {
+            params: {
+                id: "1",
+            },
+        },
+        {
+            params: {
+                id: "2",
+            },
+        },
+    ];
+    return { paths, fallback: false };
+}
 
 export default CollectionPage;
